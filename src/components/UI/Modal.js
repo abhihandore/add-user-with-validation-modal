@@ -6,7 +6,6 @@ import Card from './Card';
 const Modal = (props) => {
     return (
         <React.Fragment>
-            <div className={styles.backdrop} />
             <Card className={`${props.className} ${styles.modal} modal-view`} >
                 <header className={`${styles.header} modal-header`}>
                     <h2>{props.includes.errorTitle}</h2>

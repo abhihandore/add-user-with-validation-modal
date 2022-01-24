@@ -2,6 +2,8 @@ import React,{ useState } from 'react';
 import NewUser from './components/NewUser/NewUser';
 import Modal from './components/UI/Modal';
 import UsersList from './components/UsersList/UsersList';
+import Overlay from './components/UI/Overlay';
+import ReactDOM from 'react-dom';
 
 function App() {
 
@@ -25,14 +27,31 @@ function App() {
 
   return (
     <React.Fragment>
-      { openModal && <Modal className="modal-error" includes={error} onOkClick={onOkClickHandler} /> }
-      <div className="App">
-        <NewUser 
+      {openModal && // If OpenModal True
+        <React.Fragment>
+        {ReactDOM.createPortal( // Contains two parameters - first -> component calling and second -> destination
+                <Overlay onClick={onOkClickHandler} />, 
+                document.getElementById('backdrop-root')
+                )
+        }
+        {ReactDOM.createPortal( 
+                <Modal className="modal-error" includes={error} onOkClick={onOkClickHandler} />, 
+                document.getElementById('overlay-root')
+                )
+        }
+        </React.Fragment>
+      }
+        
+      <NewUser 
         onGettingError={onGettingErrorHandler} 
         onAddUserData={onAddUserDataHandler}
-        />
-        { users.length && <UsersList usersList={users} /> } 
-      </div>
+      />
+
+      { users.length && 
+        <UsersList 
+        usersList={users} 
+        /> 
+      }
     </React.Fragment>
     
   );

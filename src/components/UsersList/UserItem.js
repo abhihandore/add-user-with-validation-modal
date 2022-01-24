@@ -5,8 +5,7 @@ const UserItem = (props) => {
     console.log(props.id);
     return (
         <li key={props.id} className={styles['user-item']} >
-            <span>{props.username}</span>
-            <span>{props.age}</span>
+            <span>{props.username} ({props.age} Years of age)</span>
         </li>
     )
 }

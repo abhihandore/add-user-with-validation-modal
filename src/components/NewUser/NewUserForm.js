@@ -33,17 +33,32 @@ const NewUserForm = (props) => {
                 <div className={`${styles.field}`} >
                     <label className={`label`} htmlFor="username">Username</label>
                     <div className="control">
-                        <input id="username" type="text" className="input-field text-field" name="username" onInput={inputChangeHandler} value={formData.username} /> 
+                        <input id="username" 
+                        type="text" 
+                        className="input-field text-field" 
+                        name="username" 
+                        onInput={inputChangeHandler} 
+                        value={formData.username} 
+                        /> 
                     </div>
                 </div>
                 <div className={`${styles.field}`} >
                     <label className={`label`} htmlFor="age">Age (Years)</label>
                     <div className="control">
-                        <input id="age" type="number" className="input-field num-field" name="age" onInput={inputChangeHandler} value={formData.age} /> 
+                        <input id="age" 
+                        type="number" 
+                        className="input-field num-field" 
+                        name="age" 
+                        onInput={inputChangeHandler} 
+                        value={formData.age} 
+                        /> 
                     </div>
                 </div>
                 <div className="action-toolbar">
-                    <Button type="submit" className="btn btn-primary add-user">Add User</Button>
+                    <Button 
+                    type="submit" 
+                    className="btn btn-primary add-user"
+                    >Add User</Button>
                 </div>
             </fieldset>
         </form>
